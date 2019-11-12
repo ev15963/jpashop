@@ -7,7 +7,7 @@ import javax.persistence.Entity; // org.springframework.data.annotation.Id 안�
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity
+@Entity // Entity 클래스 선언(하나의 테이블에 대응하는 클래스)
 @Getter
 @Setter
 public class Member {
