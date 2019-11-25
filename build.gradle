@@ -22,10 +22,11 @@ repositories {
 	mavenCentral()
 }
 
-dependencies {
+dependencies {	//자주쓰는 라이브러리는 스프링부트 버젼에 알맞는 라이브러리 버젼을 알아서 가져오기 때문에, 버젼을 안 적어도 된다.
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa' 	// JPA 유틸
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'		// jsp 대신
 	implementation 'org.springframework.boot:spring-boot-starter-web'	// 웹개발 기본
+	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.6'   // 쿼리문에 파라미터 보여주는 p6spy 외부라이브러리. 운영, 배포 단계에서는 성능테스트를 꼭 해보길!!!
 	compileOnly 'org.projectlombok:lombok'	// 반드시 enalbe annotation processing 체크!
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'		// 갖가지 편한기능 제공
 	runtimeOnly 'com.h2database:h2'		// MySQL 대신 DB.

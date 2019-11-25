@@ -19,3 +19,4 @@ spring:
 logging:
   level:
     org.hibernate.SQL: debug # hibernate가 남기는 모든 sql이 로그에 디버그모드로 보인다.
+    org.hibernate.type: trace # 쿼리문에 바인딩한 파라미터가 뭔지 보여준다. 추가로 p6spy 라이브러리 추가하면 이쁘게 나온다.
