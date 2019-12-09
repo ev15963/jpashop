@@ -16,12 +16,29 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/*
+Order
+Order -> Member
+Order -> Delivery
+xToOne 관게의 성능최적화!
+*/
+
 @RestController
 @RequiredArgsConstructor
 public class OrderSimpleApiController {
 
     private final OrderRepository orderRepository;
     private final OrderSimpleQueryRepository orderSimpleQueryRepository;
+
+    @GetMapping("/api/v1/simple-orders")
+    public List<Order> ordersV1(){
+        List<Order> all = orderRepository.findAllByString(new OrderSearch());
+        for (Order order : all) {
+            order.getMember().getName(); //Lazy 강제 초기화(5Module 안쓰고도, 억지로 로딩하는 방법.)
+            order.getDelivery().getAddress(); //Lazy 강제 초기화(5Module 안쓰고도, 억지로 로딩하는 방법.)
+        }
+        return all;
+    }
 
     @GetMapping("/api/v2/simple-orders")
     public List<SimpleOrderDto> ordersV2(){

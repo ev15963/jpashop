@@ -1,6 +1,7 @@
 package jpabook.jpashop;
 
 import jpabook.jpashop.domain.Member;
+import jpabook.jpashop.repository.MemberRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,7 +16,8 @@ import org.springframework.transaction.annotation.Transactional;
 public class MemberRepositoryTest {
 
     // MemberRepository 테스트하기 위한 주입
-    @Autowired MemberRepository memberRepository;
+    @Autowired
+    MemberRepository memberRepository;
 
     @Test   // Repository의 save, find 테스트
     @Transactional  // EntityManager를 통한 모든 데이터 변경은 항상 Transaction 안에서 이루어져야 하므로, 에너테이션 꼭!

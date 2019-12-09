@@ -1,5 +1,6 @@
 package jpabook.jpashop.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,6 +22,7 @@ public class Member {
     // controller의 CreateMemberRequest 클래스의 NotEmpty로 대체
     private String name;
 
+    @JsonIgnore // 양방향 연관관계라면 하나는 해줘야한다. 안그럼 무한루프~
     @Embedded
     private Address address;
 
